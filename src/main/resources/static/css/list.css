@@ -1,0 +1,103 @@
+*{margin:0;padding:0;font-family: 楷体}
+.main-warp{
+    width:100%;
+    background-color: #f1f2f6;
+}
+.main{
+    width:1100px;
+    height:auto;
+    margin:0 auto;
+    padding-top: 125px;
+}
+.title{
+    width:215px;
+    height:105px;
+    margin:auto;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.title .p1{
+    font-size: 45px;
+}
+.title .p2{
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: Arial;
+}
+.title img{
+    margin-top:20px;
+}
+.list{
+    width:1100px;
+    overflow: hidden;
+}
+.list .div{
+    width:530px;
+    height:240px;
+    background-color:#ffffff;
+    box-sizing: border-box;
+    float:left;
+    margin-right:13px;
+    margin-bottom:20px;
+    /*overflow: hidden;*/
+    /*position: relative;*/
+}
+.list .div:hover{
+    border:1px solid black;
+    /*margin-top: -5px;*/
+}
+.list .div .img{
+    margin-top: 35px;
+    margin-left:20px;
+    float:left;
+}
+.list .div .text{
+    float:left;
+    margin-left: 15px;
+    margin-top: 55px;
+    width:215px;
+}
+.t1{font-size: 20px;}
+.t2{color:#958878;line-height: 15px;}
+.t3{font-size: 15px;line-height: 20px;}
+.more{
+    width:107px;
+    height:175px;
+    background-color: lightseagreen;
+    margin:60px auto;
+    /*background: url("../image/list_gomore_bg.jpg");*/
+    margin-bottom:15px;
+}
+.down{
+    width:58px;
+    height:58px;
+    background: url("../image/lis_more_btn_bg.png") no-repeat 0 -58px;
+    margin:0 auto;
+    margin-bottom: 130px;
+}
+.down:hover{
+    background-position: 0 0;
+}
+.top{
+    width:100%;
+    height:33px;
+    background: url("../image/map_bottomimg.png") center;
+}
+.p{
+    width:1100px;
+    height:55px;
+    margin-bottom: 35px;
+    background: url("../image/pen_line_long.png") no-repeat;
+    background-position: bottom left;
+    position: relative;
+}
+.pen{
+    width:61px;
+    height:55px;
+    float:right;
+    margin-left:100px;
+    background: url("../image/pen.png");
+    position: absolute;
+    right:0px;
+    top:0;
+}

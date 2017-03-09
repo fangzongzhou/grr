@@ -1,0 +1,57 @@
+.header-warp{
+    width:100%;
+    background: url("../image/aboutxiaoniao/beader_bg.jpg");
+}
+.header{
+    width:1100px;
+    height:120px;
+    margin: 0 auto;
+}
+.logo{float:left}
+.nav1{
+    width:580px;
+    height:120px;
+    float:right;
+    font-family: 楷体;
+    font-size: 15px;
+    line-height: 120px;
+    color:white;;
+}
+.nav1>li{
+    float:left;
+    margin-right:20px;
+    position: relative;
+}
+.nav1 li img{
+    vertical-align: middle;
+}
+.nav1 li .show{
+    position: absolute;
+    top:80px;
+    left:0;
+    background-color:#332348;
+    display: none;
+    z-index: 9;
+}
+.nav1 li .show li{
+    width:100px;
+    height:40px;
+    line-height: 40px;
+    padding:0 10px;
+    font-size: 12px;
+}
+.nav1 li .show li span{float:right}
+.nav1 li .show li:hover{
+    background-color: #3499db;
+    padding-left:15px;
+    width:95px;
+}
+.dian{
+    position: absolute;
+    top:75px;
+    left:42%;
+    display: none;
+}
+.nav1 li:hover .dian{
+    display: block;
+}

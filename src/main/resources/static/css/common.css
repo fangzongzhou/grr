@@ -1,0 +1,76 @@
+*{
+    margin:0;
+    padding:0;
+}
+img{
+    border:none 0;
+}
+a{
+    text-decoration:none;
+    cursor:pointer;
+}
+ul li{
+    list-style:none;
+}
+body{
+    font-family:楷体，STKaiti, KaiTi_GB2312, "华文楷体", "宋体", Arial, Helvetica, sans-serif;
+    font-size:15px;
+    background:#f1f2f6;
+}
+input{
+    outline: none;
+    border: none;
+}
+.fixed{
+    position: fixed;
+    right:50px;
+    bottom: 400px;
+}
+.toTop{
+    width: 50px;
+    height:50px;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    background: url("../image/scroll_top_bg.png")top;
+    cursor: pointer;
+    display: none;
+}
+.toTop:hover{
+    background-position: 0 -50px;
+}
+.letter{
+    width: 87px;
+    height:87px;
+    position: absolute;
+    right: -10px;
+    top:80px;
+    background: url("../image/fixed_contactus.png")right;
+    cursor: pointer;
+    display: none;
+    /*transition: all .5s ease;*/
+}
+.letter:hover{
+    width: 235px;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 16px;
+    height: 16px;
+    background-color: #F5F5F5;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}

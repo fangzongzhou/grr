@@ -1,0 +1,352 @@
+*{margin:0;padding:0;font-family: 楷体}
+ul,li{list-style: none}
+a{text-decoration: none}
+img{border:none}
+.welcome-warp{
+    width:100%;
+    height:100%;
+    background-color:#289bd7;
+    position:absolute;
+    top:0;
+    z-index:2;
+
+}
+.welcome{
+    padding-top: 50px;
+    color: white;
+    text-align: center;
+}
+.welcome .icon{
+    width:305px;
+    height:305px;
+    background: url("../image/aboutxiaoniao/xiaoniao_welcome_icon.gif") no-repeat center;
+    margin:100px auto;
+}
+.welcome .p1{
+    font-size: 40px;
+}
+.welcome .p4,.s1 .p3{
+    font-size: 20px;
+}
+.welcome .yinhao{
+    width:490px;
+    height:66px;
+    margin:30px auto;
+    position: relative;
+    text-align: center;
+    line-height: 66px;
+    font-size: 45px;
+}
+.welcome .yinhao .pic1{
+    position: absolute;
+    left:0;
+    top:0;
+}
+.welcome .yinhao .pic2{
+    position: absolute;
+    right:0;
+    bottom:0;
+}
+/*.welcome .p1,.welcome .p2,.welcome .yinhao,.welcome .p3,.welcome .p4{*/
+    /*display: none;*/
+/*}*/
+.welcome .animate{
+    display: none;
+}
+/*全屏滚动*/
+.screen-banner{
+    overflow: hidden;
+    position: relative;
+}
+.all-screen{
+    position: absolute;
+    top:0;
+    transition: top 0.5s;
+}
+/*head头部*/
+.head-warp{
+    width:100%;
+    height:50px;
+    background: url("../image/header_bg.jpg") center;
+    position: fixed;
+    z-index: 1;
+}
+.head{
+    height:50px;
+    width:1100px;
+    margin:0 auto;
+}
+.head .logo{
+    float:left;
+    margin-right: 55px;
+}
+.head .nav li{
+    float:left;
+    margin-right: 35px;
+    line-height: 50px;
+    color:#afabb5;
+    position: relative;
+}
+.head .nav li span{
+    display: inline-block;
+    width:5px;
+    height:5px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    bottom:0;
+    left:50%;
+    margin-left:-2.5px;
+    display: none;
+}
+.now{
+   background-color: red;
+}
+
+/*第一页 概述*/
+.s1{
+    padding-top: 50px;
+    color:white;
+    text-align: center;
+}
+.s1 .icon{
+    width:305px;
+    height:305px;
+    background: url("../image/aboutxiaoniao/xiaoniao_welcome_icon3.gif") no-repeat center;
+    margin:0 auto;
+}
+.s1 .p1{
+    font-size: 40px;
+}
+.s1 .p4,.s1 .p3{
+    font-size: 20px;
+}
+.s1 .yinhao{
+    width:490px;
+    height:66px;
+    margin:30px auto;
+    position: relative;
+    text-align: center;
+    line-height: 66px;
+    font-size: 45px;
+}
+.s1 .yinhao .pic1{
+    position: absolute;
+    left:0;
+    top:0;
+}
+.s1 .yinhao .pic2{
+    position: absolute;
+    right:0;
+    bottom:0;
+}
+/*第二页  */
+.s2{position: relative}
+.s2 .warp1 .title{
+    font-size: 50px;
+    text-align: center;
+    color:#301658;
+    margin-bottom: 30px;
+}
+.s2 .warp1 .yinhao{
+    width:695px;
+    height:88px;
+    margin:30px auto;
+    position: relative;
+}
+.s2 .warp1 .yinhao p{
+    display: inline-block;
+    width:629px;
+    height:78px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.s2 .yinhao div{
+    width:20px;
+    height:18px;
+    position: absolute;
+}
+.s2 .yinhao .zuo{
+    background: url("../image/aboutxiaoniao/yinhao2_zuo.png");
+    left:0;
+    top:0;
+}
+.s2 .yinhao .you{
+    background: url("../image/aboutxiaoniao/yinhao2_you.png");
+    right:0;
+    bottom:0;
+}
+.s2 .warp1 .img-warp{
+    width:867px;
+    height:379px;
+    margin:0 auto;
+}
+.s2 .warp1 .img-warp img{
+    float: left;
+    margin-right:25px;
+}
+.s2 .warp1{
+    width:860px;
+    margin: 0px auto;
+}
+.s2 .warp2{
+    width:630px;
+    margin: 0px auto;
+}
+.s2 .warp3{
+    width:720px;
+    height:612px;
+    margin:0 auto;
+}
+.s2>ul>div{display: none}
+.s2 .warp2 ul li{
+    display: inline-block;
+    width:630px;
+    margin-top:50px;
+}
+.s2 .warp2 ul li img{
+    float:left;
+}
+.s2 .warp2 ul li .text{
+    float:left;
+    margin-top: 25px;
+    margin-left: 60px;
+}
+.s2>span{
+    width:58px;
+    height:58px;
+    position: absolute;
+}
+.s2 .prev{
+    background: url("../image/aboutxiaoniao/goleft.png") no-repeat 0 0;
+    top:50%;
+    margin-top: -29px;
+    left:5%;
+}
+.s2 .next{
+    background: url("../image/aboutxiaoniao/goright.png") no-repeat -58px 0;
+    top:50%;
+    margin-top: -29px;
+    right:5%;
+}
+.s2 .warp3 .t1{
+    margin:0 auto;
+    width:502px;
+    height:38px;
+}
+.s2 .warp3 .yinhao{
+    width:340px;
+    height: 65px;
+    margin:60px auto;
+    position: relative;
+}
+.s2 .warp3>p{
+    width: 720px;
+    height:140px;
+    margin:45px auto;
+    line-height:25px;
+}
+.s2 .warp3 .t2{
+    margin:0 auto;
+    width:104px;
+    height:170px;
+}
+.s2 .warp3 .yinhao p{
+    font-size: 30px;
+    text-align: center;
+    line-height: 65px;
+}
+/*第三页 对企业的价值*/
+.s3 .jiazhi-title{
+    font-size: 40px;
+    color:white;
+    text-align: center;
+    margin-bottom: 110px;
+}
+.s3 .content{
+    width:850px;
+    height:317px;
+    margin:0 auto;
+    position: relative;
+    padding:30px 60px;;
+}
+.c1{position: absolute;top:0;left:0;}
+.c2{position: absolute;top:0;right:0;}
+.c3{position: absolute;bottom:0;left:0;}
+.c4{position: absolute;bottom:0;right:0;}
+.s3 .div{
+    width:370px;
+    height:76px;
+    float:left;
+    color:white;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+.s3 .div .img{
+    width:74px;
+    height:74px;
+    text-align: center;
+    line-height: 74px;
+    float:left;
+    /*vertical-align: middle;*/
+    background: url("../image/aboutxiaoniao/jiazhi_quanquan.png") no-repeat center;
+}
+.s3 .div p{
+    float:right;
+    display: inline-block;
+    width:270px;
+    margin-top: 20px;
+}
+/*第四页 小鸟掌云*/
+.s4 .title{
+    font-size: 50px;
+    text-align: center;
+    color:#301658;
+    margin-bottom: 30px;
+}
+.s4 .main{
+    width:915px;
+    height:396px;
+    margin:0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.s4 .main ul{
+    width:3660px;
+    height:396px;
+    position: absolute;
+    left:-915px;
+}
+.s4 .main ul li{
+    float:left;
+    width:915px;
+    height:396px;
+}
+.s4 .main ul li p{
+    height:35px;
+    width:915px;
+    line-height: 35px;
+    display: inline-block;
+    background: url("../image/aboutxiaoniao/xuxian_bg.png") repeat-x center;
+}
+.s4 .btn{
+    width:300px;
+    height:8px;
+    margin: 25px auto;
+}
+.s4 .btn span{
+    display: inline-block;
+    width:78px;
+    height:8px;
+    margin-left: 20px;
+    background: url("../image/aboutxiaoniao/xiaoniaoyun_btn.png");
+}
+.s4 .btn .next{
+    background-position: 0 -8px;
+}
+/*第五页 APP下载  联系客服*/
+.s5{
+    padding-top: 50px;
+    background: url("../image/aboutxiaoniao/app&contacts.jpg") no-repeat center;
+}

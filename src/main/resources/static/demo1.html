@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/move.js"></script>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        .warp{position: relative;overflow: hidden}
+        div{
+            width:300px;
+            height:200px;
+        }
+        .banner{
+            display: none;
+        }
+        .banner:first-child{display: block}
+        ul{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        li{
+            float:left;
+            width:20px;
+            height:20px;
+            border-radius: 10px;
+            background-color: black;
+        }
+       /* @keyframes rightIn {
+           !* 0%{transform: translateX(300px);}
+            60%{transform: translate(100px,100px);}
+            90%{transform: translateX(200px);}
+            100%{transform: translateX(0);}*!
+            !*from{
+                transform: translateX(300px);
+            }
+            to{
+                transform: translateX(0);
+            }*!
+        }*/
+        .banner h1{
+
+        }
+
+
+    </style>
+    <script>
+        $(function () {
+           $("li").click(function () {
+              var index = $(this).index();
+               $(".banner").hide().eq(index).show();
+           });
+        });
+    </script>
+</head>
+<body>
+<div class="warp">
+    <div class="banner" style="background-color: blue">
+        <h1 class="animated pulse">这是h1</h1>
+    </div>
+    <div class="banner" style="background-color: red">
+        <h1>这是h1</h1>
+    </div>
+    <div class="banner" style="background-color:green ">
+        <h1>这是h1</h1>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
