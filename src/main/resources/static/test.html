@@ -28,7 +28,12 @@ ertwerter
 <h1>user input</h1>
 <input type="text" name="username" id="username">
 <input type="password" name="password" id="password">
+
 <h2>user list</h2>
+<form method="post" enctype="multipart/form-data" action="/test/upload">
+    <p>file: <input type="file" name="file" multiple="multiple"></p>
+    <p><input type="submit" value="upload"></p>
+</form>
 
 </body>
 </html>
