@@ -15,8 +15,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class SchedulConfig {
 
     private final Logger logger= LoggerFactory.getLogger(getClass());
-    @Scheduled(cron = "0/20 * * * * ?")
+    /*@Scheduled(cron = "0/20 * * * * ?")
     public void test() {
         logger.info(".....schedul");
-    }
+    }*/
 }
