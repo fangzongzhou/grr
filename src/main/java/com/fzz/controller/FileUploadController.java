@@ -16,26 +16,13 @@ import java.util.List;
 @RequestMapping("/springupload")
 public class FileUploadController {
 
-    // 访问路径为：http://ip:port/upload
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
-    public String upload() {
-        return "/fileupload";
-    }
 
-    // 访问路径为：http://ip:port/upload/batch
-    @RequestMapping(value = "/upload/batch", method = RequestMethod.GET)
-    public String batchUpload() {
-        return "/mutifileupload";
-    }
 
     /**
-     * 文件上传具体实现方法（单文件上传）
      *
-     * @param file
-     * @return
      *
-     * @author 单红宇(CSDN CATOOP)
-     * @create 2017年3月11日
+     *
+     *单文件上传
      */
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
@@ -63,15 +50,12 @@ public class FileUploadController {
         }
     }
 
-    /**
-     * 多文件上传 主要是使用了MultipartHttpServletRequest和MultipartFile
-     *
-     * @param request
-     * @return
-     *
-     * @author 单红宇(CSDN CATOOP)
-     * @create 2017年3月11日
-     */
+   /*
+   * 多文件上传
+   *
+   *
+   *
+   * */
     @RequestMapping(value = "/upload/batch", method = RequestMethod.POST)
     public @ResponseBody String batchUpload(HttpServletRequest request) {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");

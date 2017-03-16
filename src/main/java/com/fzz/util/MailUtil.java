@@ -52,7 +52,13 @@ public class MailUtil {
         return props;
     }
 
-    public void sendMail(String subject,String internetAddress,String username,String password,String toaddress) throws GeneralSecurityException, MessagingException {
+    public void sendMail(
+            String subject,
+            String internetAddress,
+            String username,
+            String password,
+            String toaddress
+    ) throws GeneralSecurityException, MessagingException {
 
 
         //通过配置新建会话
@@ -77,6 +83,7 @@ public class MailUtil {
         mdp = new MimeBodyPart();
         // DataHandler dh = new DataHandler(new ByteArrayDataSource(getImageBytes("http://i03.pictn.sogoucdn.com/3c28af542f2d49f7-fe9c78d2ff4ac332-d7247f28ea222792bc4dbd945a213519_qq"), "application/octet-stream"));
         DataHandler dh=new DataHandler(new FileDataSource("F:\\图片\\头像\\fzz.jpg"));
+
         mdp.setDataHandler(dh);
         //加上这句将作为附件发送,否则将作为信件的文本内容
         mdp.setFileName("二维码图片.png");

@@ -12,18 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class PageController {
 
-    /*@RequestMapping("/index")
-    public String index() {
-        return "index";
-    }
 
-    @RequestMapping("/test")
-    public Test test() {
-        Test test=new Test();
-        test.setName("fasdf");
-        test.setId("12");
-        return test;
-    }*/
+
     @RequestMapping("/fff")
     public String fff() {
         return "ffff";
