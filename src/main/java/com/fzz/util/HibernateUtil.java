@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 /**
  * Created by fzz on 2017/2/22.
+ * hibernatg工具类
  */
 public class HibernateUtil {
     private static SessionFactory sessionFactory=null;

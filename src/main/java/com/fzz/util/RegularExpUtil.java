@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by tuyoo on 2017/3/16.
+ * 正则表达式工具
  */
 public class RegularExpUtil {
 

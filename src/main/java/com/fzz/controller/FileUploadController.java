@@ -33,7 +33,7 @@ public class FileUploadController {
                 // 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
                 // 还有关于文件格式限制、文件大小限制，详见：中配置。
                 BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(file.getOriginalFilename())));
+                        new FileOutputStream(new File("qwer//"+file.getOriginalFilename())));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();

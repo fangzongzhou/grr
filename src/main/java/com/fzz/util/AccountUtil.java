@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * I have For  account to encrypt
  * every password pass this web should use it
  * login and registered
+ * 账号管理工具
  */
 public class AccountUtil {
 

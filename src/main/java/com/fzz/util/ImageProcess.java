@@ -36,20 +36,20 @@ package com.fzz.util;
  */
 public class ImageProcess {
     // 存放所有下载验证码的目录
-    private static final String DOWNLOAD_DIR = "D:\\Work\\helloworld\\resources\\validate\\download";
+    private static final String DOWNLOAD_DIR = "qwer\\download";
 
     // 存放已经拆分开的单个数字图片的目录，供比对用
-    private static final String TRAIN_DIR = "D:\\Work\\helloworld\\resources\\validate\\train";
+    private static final String TRAIN_DIR = "qwer\\train";
 
     // 存放比对结果的目录（重新以验证码所含数字命名文件，非常直观）
-    private static final String RESULT_DIR = "D:\\Work\\helloworld\\resources\\validate\\result";
+    private static final String RESULT_DIR = "qwer\\result";
 
     // 存放比对图片与代表数字的Map
     private static Map<BufferedImage, String> trainMap = new HashMap<BufferedImage, String>();
 
     // 图片过滤器，想要什么样的图片，传进名称即可。如：png/gif/.png
     static class ImageFileFilter implements FileFilter {
-        private String postfix = ".png";
+        private String postfix = ".gif";
 
         public ImageFileFilter(String postfix) {
             if(!postfix.startsWith("."))
@@ -81,7 +81,7 @@ public class ImageProcess {
     private void downloadImage() throws Exception {
         HttpClient httpClient = new DefaultHttpClient();
         for (int i = 0; i < 10; i++) {
-            String url = "http://www.yoursite.com/yz.php";
+            String url = "http://jwc.ysu.edu.cn/zjdxgc/CheckCode.aspx?????????????????";
             HttpGet getMethod = new HttpGet(url);
             try {
                 HttpResponse response = httpClient.execute(getMethod, new BasicHttpContext());
@@ -142,8 +142,8 @@ public class ImageProcess {
 
     // 3.判断拆分验证码的标准：就是定义验证码中包含的各数字的x、y坐标值，及它们的宽度（width）、高度（height）。
     private static List<BufferedImage> splitImage(BufferedImage image) throws Exception {
-        final int DIGIT_WIDTH = 19;
-        final int DIGIT_HEIGHT = 17;
+        final int DIGIT_WIDTH = 72;
+        final int DIGIT_HEIGHT = 27;
 
         List<BufferedImage> digitImageList = new ArrayList<BufferedImage>();
         digitImageList.add(image.getSubimage(2, 2, DIGIT_WIDTH, DIGIT_HEIGHT));
@@ -248,7 +248,7 @@ public class ImageProcess {
         ImageProcess ins = new ImageProcess();
 
         // 第1步，下载验证码到DOWNLOAD_DIR
-//        ins.downloadImage();
+        ins.downloadImage();
 
         // 第2步，去除干扰的像素
 //        File dir = new File(DOWNLOAD_DIR);
@@ -273,7 +273,7 @@ public class ImageProcess {
         // 打开资源管理器，选择TRAIN_DIR，分别找出显示0-9数字的文件，以它的名字重新命名，删除其它所有的。
 
         // 第7步，测试判断效果，运行后打开RESULT_DIR，检查文件名是否与验证码内容一致。
-        ins.testDownloadImage();
+      //  ins.testDownloadImage();
 
         // 第8步，提供给外界接口调用。
 //        String validateCode = ImageProcess.getValidateCode(new File(DOWNLOAD_DIR, "0.png"));
