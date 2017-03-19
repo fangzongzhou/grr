@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "fds", schema = "db_example", catalog = "")
 public class FdsEntity {
-    private String fasd;
+    private String fasd;//meisheile
     private String qwer;
     private String gsdfg;
 
