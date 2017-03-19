@@ -34,6 +34,7 @@ public class FileUploadController {
                 // 还有关于文件格式限制、文件大小限制，详见：中配置。
                 BufferedOutputStream out = new BufferedOutputStream(
                         new FileOutputStream(new File("qwer//"+file.getOriginalFilename())));
+
                 out.write(file.getBytes());
                 out.flush();
                 out.close();

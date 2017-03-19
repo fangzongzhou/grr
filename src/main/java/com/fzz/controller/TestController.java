@@ -1,11 +1,13 @@
 package com.fzz.controller;
 
+import com.fzz.dao.TestDao;
+import com.fzz.entity.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/test")
 public class TestController {
+
+    @Autowired
+    private TestDao testDao;
+    @RequestMapping("/userlist")
+    public List<UserEntity> asdfas() {
+        return testDao.getList();
+    }
 
     @RequestMapping("/test")
     public List<Test> test(
