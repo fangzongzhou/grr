@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Test_repotr</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+
+    </script>
 </head>
 <body>
-一、测试环境
-测试服：
-测试包：
-二、测试模块
-已测模块：
-未测模块：
-三、测试结果
 
-四、附件
+
+
 <h1>测试邮件发送</h1>
-<form>
+<form action="/testmail/sendmail" method="post">
     <table>
+        <caption>测试环境：</caption>
         <tr>
             <td>测试服：</td>
             <td><input type="text" name="test_server"><br></td>
@@ -40,18 +39,29 @@
         <tr>
             <td>测试机型:</td>
             <td>
-                机器编号：<input type="text" name="machine_id">
+                机器编号：<input type="text" name="machine_id"><br>
                 机器型号：<input type="text" name="machine_size">
             </td>
         </tr>
     </table>
 
-    <table>
+    <hr>
+    <table align="ceshijieguojifenxi">
+        <caption>测试结果及分析：</caption>
+
+        <tr>
+            <td>主要测试模块：</td>
+            <td>
+                <input type="text" name="main_model"><br>
+                <input type="button" value="添加测试模块">
+            </td>
+
+        </tr>
 
     </table>
 
 
-
+    <input type="submit" value="发送测试邮件">
 
     <hr>
 </form>
