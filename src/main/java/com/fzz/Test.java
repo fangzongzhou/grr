@@ -5,6 +5,7 @@ import com.fzz.util.RegularExpUtil;
 import com.fzz.util.UrlUtil;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import redis.clients.jedis.Jedis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,9 +37,11 @@ public class Test {
 //            System.out.println(iterator.next());
 //        }
 //        System.out.println(regularExpUtil.is_matching(str,regEx));
-        System.out.println(new PathUtil().getProjectPath());
-        Gson gson=new Gson();
-
+        Jedis jedis = new Jedis("localhost");
+        System.out.println("connection to server successful");
+        System.out.println("server is runing: "+jedis.ping());
+        jedis.set("fzzname", "fangzongzhou");
+        System.out.println("result::  "+jedis.get("fzzname"));
 
 
     }

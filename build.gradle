@@ -40,6 +40,9 @@ dependencies {
     // https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl
     compile group: 'net.sourceforge.jexcelapi', name: 'jxl', version: '2.6.12'
 
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
 
 
 
