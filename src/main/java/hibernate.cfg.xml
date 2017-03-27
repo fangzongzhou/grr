@@ -6,8 +6,9 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/db_example</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <mapping class="com.fzz.entity.FdsEntity"/>
         <mapping class="com.fzz.entity.UserEntity"/>
+
+
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

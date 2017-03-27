@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class TestController {
     @Autowired
     private TestDao testDao;
     @RequestMapping("/userlist")
-    public List<UserEntity> asdfas() {
+    public List<UserEntity> asdfas(HttpSession session) {
+
+        System.out.println(session.getAttribute("userid"));
         return testDao.getList();
     }
 

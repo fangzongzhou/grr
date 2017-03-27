@@ -26,7 +26,7 @@ public class UrlUtil {
             String str;
             while ((str = in.readLine()) != null)
             {
-                System.out.println(str);
+                //System.out.println(str);
                 response_str.append(str);
             }
             in.close();

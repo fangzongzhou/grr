@@ -37,12 +37,23 @@ public class Test {
 //            System.out.println(iterator.next());
 //        }
 //        System.out.println(regularExpUtil.is_matching(str,regEx));
-        Jedis jedis = new Jedis("localhost");
-        System.out.println("connection to server successful");
-        System.out.println("server is runing: "+jedis.ping());
-        jedis.set("fzzname", "fangzongzhou");
-        System.out.println("result::  "+jedis.get("fzzname"));
-
+//        Jedis jedis = new Jedis("localhost");
+//        System.out.println("connection to server successful");
+//        System.out.println("server is runing: "+jedis.ping());
+//        jedis.set("fzzname", "fangzongzhou");
+//        System.out.println("result::  "+jedis.get("fzzname"));
+        UrlUtil urlUtil=new UrlUtil();
+        String asd="http://125.39.220.71:9100/20170324/20/";
+        //System.out.println(urlUtil.get_Response_Str("http://125.39.220.71:9100/20170324/21/55_40_ERRORS_17_9101.html"));
+        String[] ss = urlUtil.get_Response_Str(asd).split("href=\"");
+        int i=0;
+        for (String s:ss
+             ) {
+            String rs=s.substring(0,s.indexOf("\""));
+           // System.out.println(s.substring(0,s.indexOf("\"")));
+            System.out.println(i++);
+            System.out.println(urlUtil.get_Response_Str(asd+rs));
+        }
 
     }
 }

@@ -1,10 +1,12 @@
 package com.fzz.util;
 
+import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
+
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by tuyoo on 2017/3/16.
@@ -35,6 +37,14 @@ public class FileUtil {
     
 
     public static void main(String[] args) throws IOException {
+
+        FileUtil fileUtil=new FileUtil();
+        List<String> list1=new ArrayList<String>();
+        List<String> list=fileUtil.getAllFileList("/Users/tuyoo/Desktop",list1);
+        Iterator<String> iterator =list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
         
     }
 
@@ -61,23 +71,50 @@ public class FileUtil {
         bufferedOutputStream.close();
     }
 
+    //获取当前路径下所有非文件夹的文件
+    public List<String> getTimePathFilename(String dirPath) {
+
+        List<String> filenames=new ArrayList<String>();
+        File path =new File(dirPath);
+        if (!path.isDirectory()) {
+            throw new IllegalArgumentException(dirPath+": 不是一个目录路径");
+        }
+        File[] files=path.listFiles();
+        String str;
+        for (File f:files     ) {
+
+            if(!f.isDirectory()) {
+                str=dirPath+"/"+f.getName();
+                //System.out.println(str);
+                filenames.add(str);
+
+            }
+        }
+        return filenames;
+    }
+
     //获取该参数路径下的所有文件文件名,深度遍历
-    public void fileIterator(String dirPath){
+    public List<String> getAllFileList(String dirPath,List<String> filenames){
+
 
         File path =new File(dirPath);
         if (!path.isDirectory()) {
             throw new IllegalArgumentException(dirPath+": 不是一个目录路径");
         }
         File[] files=path.listFiles();
+        String str;
         for (File f:files     ) {
             if (f.isDirectory()) {
-                this.fileIterator(f.getAbsolutePath());//递归操作
+                this.getAllFileList(f.getAbsolutePath(),filenames);//递归操作
             }
             else {
-                System.out.println(dirPath+"\\"+f.getName());
+                str=dirPath+"/"+f.getName();
+                //System.out.println(str);
+                filenames.add(str);
 
             }
         }
+        return filenames;
     }
 
     public void randomAccessFile() throws IOException {

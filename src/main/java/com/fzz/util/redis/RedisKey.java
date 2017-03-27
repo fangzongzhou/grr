@@ -12,6 +12,7 @@ import java.util.Set;
 public class RedisKey {
     public static void main(String[] args) {
         Jedis jedis = new Jedis("localhost");
+        jedis.auth("root");
         System.out.println("connection successfully");
         System.out.println(jedis.ping());
         Set<String> set=jedis.keys("*");
@@ -19,6 +20,7 @@ public class RedisKey {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
 
     }
 }
