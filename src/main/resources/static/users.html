@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <title>users</title>
     <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $.get("/test/usetlist", function (data, status) {
+    $(document).ready(function () {
 
-            });
+    $.getJSON("/test/userlist",function (data) {
+    $.each(data,function () {
+    var $users=$("#users");
+    var strHtml="";
+    $.each(data,function (infoIndex,info) {
+    strHtml+="username: "+info["username"]+"<br/>";
+    strHtml+="password: "+info["password"]+"<br/>";
+    strHtml+="id: "+info["id"]+"<br/>";
+    strHtml+="<hr>"
+    })
+    $users.html(strHtml);
+    })
+    })
 
-        })
+
+    })
     </script>
+
 
 </head>
 <body>
+<h2>列出所有用户</h2>
 
+<div id="users">
+
+</div>
 </body>
 </html>

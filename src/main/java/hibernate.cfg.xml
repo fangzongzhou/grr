@@ -7,6 +7,8 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/db_example</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <mapping class="com.fzz.entity.UserEntity"/>
+        <mapping class="com.fzz.entity.UserInfoEntity"/>
+        <mapping class="com.fzz.entity.UserRelationEntity"/>
 
 
         <!-- <property name="connection.username"/> -->

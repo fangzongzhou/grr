@@ -3,7 +3,7 @@ package com.fzz.entity;
 import javax.persistence.*;
 
 /**
- * Created by tuyoo on 2017/3/27.
+ * Created by tuyoo on 2017/3/28.
  */
 @Entity
 @Table(name = "user", schema = "db_example", catalog = "")
@@ -14,7 +14,6 @@ public class UserEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

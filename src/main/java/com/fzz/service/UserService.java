@@ -1,5 +1,6 @@
 package com.fzz.service;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fzz.dao.UserDao;
 import com.fzz.entity.UserEntity;
 import com.fzz.util.AccountUtil;
@@ -14,6 +15,8 @@ import java.util.List;
  * Created by tuyoo on 2017/3/27.
  */
 @Service
+@JsonFilter("password")
+
 public class UserService {
     @Autowired
     private UserDao userDao;
@@ -70,6 +73,12 @@ public class UserService {
             return true;
         }
         return false;
+    }
+
+
+    public List<UserEntity> getAllUsers() {
+                List<UserEntity> allusers = userDao.getAllUser();
+                return allusers;
     }
 
 
