@@ -1,7 +1,7 @@
 package com.fzz.controller;
 
 import com.fzz.dao.TestDao;
-import com.fzz.entity.UserEntity;
+import com.fzz.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +21,7 @@ public class TestController {
     @Autowired
     private TestDao testDao;
     @RequestMapping("/userlist")
-    public List<UserEntity> asdfas() {
+    public List<User> asdfas() {
         return testDao.getList();
     }
 
