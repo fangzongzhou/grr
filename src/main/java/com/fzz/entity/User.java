@@ -20,6 +20,9 @@ public class User {
     private Date birthday;
     private String password;
 
+    public User() {
+    }
+
     public String getPassword() {
         return password;
     }

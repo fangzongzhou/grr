@@ -15,4 +15,28 @@ public class Build {
     private String position;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "id")
     private Collection<Room> rooms;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Collection<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Collection<Room> rooms) {
+        this.rooms = rooms;
+    }
 }
