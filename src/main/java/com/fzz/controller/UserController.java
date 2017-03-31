@@ -1,8 +1,6 @@
 package com.fzz.controller;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fzz.entity.UserEntity;
-import com.fzz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
