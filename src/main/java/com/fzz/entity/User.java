@@ -14,7 +14,7 @@ public class User {
     private int id;
     private String gender;
     private String mail;
-    private String userName;
+    private String username;
     private Integer phoneNumber;
 
     private Date birthday;
@@ -58,12 +58,12 @@ public class User {
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 
@@ -94,7 +94,7 @@ public class User {
         if (id != that.id) return false;
         if (gender != null ? !gender.equals(that.gender) : that.gender != null) return false;
         if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
-        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (phoneNumber != null ? !phoneNumber.equals(that.phoneNumber) : that.phoneNumber != null) return false;
         if (birthday != null ? !birthday.equals(that.birthday) : that.birthday != null) return false;
         if (password !=null ? !password.equals(that.birthday) : that.birthday!=null) return false;
@@ -107,7 +107,7 @@ public class User {
         int result = id;
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (mail != null ? mail.hashCode() : 0);
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
         result = 31 * result + (password != null ? birthday.hashCode() : 0);

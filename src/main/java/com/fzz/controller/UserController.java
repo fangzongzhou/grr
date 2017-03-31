@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -23,10 +24,32 @@ public class UserController {
         return userService.getAll();
     }
 
+    @RequestMapping("/login")
     public User login(
+            @RequestParam("username")String username,
+            @RequestParam("password")String password,
+            HttpSession httpSession
+    ){
+        return userService.login(username,password,httpSession);
+    }
+    @RequestMapping("register")
+    public User register(
             @RequestParam("username")String username,
             @RequestParam("password")String password
     ){
-        return userService.login(username,password);
+                return userService.register(username,password);
+    }
+
+    @RequestMapping("modify")
+    public User modify(
+            @RequestParam(required = true, value = "username") String username,
+            @RequestParam("password") String password
+    ) {
+                return userService.modify(username,password);
+    }
+
+    @RequestMapping("checkusername")
+    public boolean checkUserExist(@RequestParam("username") String username) {
+        return userService.checkUserExist(username);
     }
 }

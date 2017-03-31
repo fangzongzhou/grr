@@ -9,6 +9,8 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UserDao extends JpaRepository<User,Integer>{
 
+    public User findByUsername(String userName);
+
 
 
 }

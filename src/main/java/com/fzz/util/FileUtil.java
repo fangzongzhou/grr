@@ -118,7 +118,7 @@ public class FileUtil {
     }
 
     public void randomAccessFile() throws IOException {
-        File file=new File("E:\\workspace\\idea\\grr\\src\\main\\resources\\static\\test.html");
+        File file=new File("二维若群翁");
         RandomAccessFile randomAccessFile=new RandomAccessFile(file,"rw");
         randomAccessFile.seek(0);
         byte[] bytes=new byte[(int)randomAccessFile.length()];
