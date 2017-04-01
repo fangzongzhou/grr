@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user_info</title>
+</head>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+
+        $.getJSON("/user/info",function (data) {
+
+
+            var strHtml = "";
+
+
+            strHtml += "<tr>";
+            strHtml += "<td>" + data["id"] + "</td>";
+            strHtml += "<td class='username'>" + data["username"] + "</td>";
+            strHtml += "<td class='gender'>" + data["gender"] + "</td>";
+            strHtml += "<td class='mail'>" + data["mail"] + "</td>";
+            strHtml += "<td class='phoneNumber'>" + data["phoneNumber"] + "</td>";
+            strHtml += "<td class='birthday'>" + data["birthday"] + "</td>";
+
+            strHtml += "</tr>";
+
+
+            $("#info").append(strHtml);
+
+
+        })
+
+
+
+
+
+
+    })
+</script>
+<body>
+<h2>用户详细信息</h2>
+<div>
+    <table id="info">
+        <tr>
+            <th>userid</th>
+            <th>username</th>
+            <th>gender</th>
+            <th>mail</th>
+            <th>phonenumber</th>
+            <th>birthday</th>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

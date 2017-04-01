@@ -19,6 +19,23 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping("/serqueryname")
+    public void setQueryName(
+            @RequestParam("username")String username,
+            HttpSession httpSession
+    ){
+        httpSession.setAttribute("queryname",username);
+    }
+
+    @RequestMapping("/info")
+    public User info(
+            HttpSession httpSession
+    ) {
+               String username= (String) httpSession.getAttribute("queryname");
+               return userService.findByName(username);
+    }
+
     @RequestMapping("/all")
     public List<User> users() {
         return userService.getAll();
@@ -52,4 +69,5 @@ public class UserController {
     public boolean checkUserExist(@RequestParam("username") String username) {
         return userService.checkUserExist(username);
     }
+
 }
