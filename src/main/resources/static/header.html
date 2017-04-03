@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="js/move.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/header.css" type="text/css">
+</head>
+<body>
+<div class="header-warp">
+    <div class="header">
+        <img onclick="javascript:window.open('index.html')" class="logo" src="image/logo.png"/>
+        <ul class="nav1">
+            <li onclick="javascript:window.open('index.html')">首页<img style="display: block" src="image/nav_now_bg.png" class="dian"></li>
+            <li>
+                小鸟掌学
+                <img src="image/nav_xiajiantou.png"/>
+                <img src="image/nav_now_bg.png" class="dian">
+                <ul class="show">
+                    <li>学习主页<span>&gt;</span></li>
+                    <li>小鸟掌学概述<span>&gt;</span></li>
+                    <li>对企业的价值<span>&gt;</span></li>
+                    <li>小鸟掌云<span>&gt;</span></li>
+                    <li>微课联盟<span>&gt;</span></li>
+                    <li>APP下载<span>&gt;</span></li>
+                </ul>
+            </li>
+            <li onclick="javascript:window.open('list.html')">小鸟动态<img src="image/nav_now_bg.png" class="dian"></li>
+            <li>
+                企业文化
+                <img src="image/nav_xiajiantou.png"/>
+                <img src="image/nav_now_bg.png" class="dian">
+                <ul class="show">
+                    <li onclick="javascript:window.open('article.html?type=companyIdea')">公司理念<span>&gt;</span></li>
+                    <li onclick="javascript:window.open('article.html?type=companyCulture')">公司文化<span>&gt;</span></li>
+                    <li onclick="javascript:window.open('article.html?type=companyEnvironment')">公司氛围<span>&gt;</span></li>
+                </ul>
+            </li>
+            <li>
+                人力资源
+                <img src="image/nav_xiajiantou.png"/>
+                <img src="image/nav_now_bg.png" class="dian">
+                <ul class="show">
+                    <li onclick="javascript:window.open('article.html?type=talents')">人才理念<span>&gt;</span></li>
+                    <li onclick="javascript:window.open('article.html?type=team')">团队介绍<span>&gt;</span></li>
+                    <li onclick="javascript:window.open('article.html?type=joinUs')">招聘信息<span>&gt;</span></li>
+                </ul>
+            </li>
+            <li onclick="javascript:window.open('article.html?type=telUs')">联系我们<img src="image/nav_now_bg.png" class="dian"></li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".nav1>li").hover(
+                function () {
+                    $(this).find(".show").stop().slideDown(400,"backBoth");
+                },
+                function () {
+                    $(this).find(".show").stop().slideUp("fast");
+                });
+    })
+</script>
+</body>
+</html>

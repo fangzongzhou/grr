@@ -16,6 +16,7 @@ public class Build {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "id")
     private Collection<Room> rooms;
 
+
     public int getId() {
         return id;
     }

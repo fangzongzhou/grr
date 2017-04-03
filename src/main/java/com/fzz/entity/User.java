@@ -1,7 +1,10 @@
 package com.fzz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 /**
  * Created by fzz on 2017/3/28.
@@ -15,12 +18,58 @@ public class User {
     private String gender;
     private String mail;
     private String username;
-    private Integer phoneNumber;
-
-    private Date birthday;
+    @JsonIgnore
     private String password;
+    private Integer phoneNumber;
+    private Date birthday;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "instructor")
+    @JsonIgnore
+    private Collection<Course> primaryCourse;
+    @OneToMany(mappedBy = "creater")
+    @JsonIgnore
+    private Collection<Task> createbyme;
+
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(
+            name = "user_task",
+            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "task_id",referencedColumnName = "id")
+    )
+    private Collection<Task> tasks2me;
+
+
+
+
+
+
+
+
+    public Collection<Task> getCreatebyme() {
+        return createbyme;
+    }
+
+    public void setCreatebyme(Collection<Task> createbyme) {
+        this.createbyme = createbyme;
+    }
+
+    public Collection<Task> getTasks2me() {
+        return tasks2me;
+    }
+
+    public void setTasks2me(Collection<Task> tasks2me) {
+        this.tasks2me = tasks2me;
+    }
 
     public User() {
+    }
+
+    public Collection<Course> getPrimaryCourse() {
+        return primaryCourse;
+    }
+
+    public void setPrimaryCourse(Collection<Course> primaryCourse) {
+        this.primaryCourse = primaryCourse;
     }
 
     public String getPassword() {

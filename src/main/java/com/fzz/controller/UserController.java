@@ -3,6 +3,7 @@ package com.fzz.controller;
 import com.fzz.entity.User;
 import com.fzz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,12 @@ public class UserController {
     ) {
                String username= (String) httpSession.getAttribute("queryname");
                return userService.findByName(username);
+    }
+    @RequestMapping("info/{username}")
+    public User userinfo(
+            @PathVariable("username")String username
+    ){
+                return userService.findByName(username);
     }
 
     @RequestMapping("/all")

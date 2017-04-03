@@ -13,8 +13,8 @@ import java.io.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/springupload")
-public class FileUploadController {
+@RequestMapping("/file")
+public class FileController {
 
 
 
