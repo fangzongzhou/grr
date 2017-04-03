@@ -17,7 +17,7 @@
 
 
             strHtml += "<tr>";
-            strHtml += "<td>" + data["id"] + "</td>";
+            strHtml += "<td id='id'>" + data["id"] + "</td>";
             strHtml += "<td class='username'>" + data["username"] + "</td>";
             strHtml += "<td class='gender'>" + data["gender"] + "</td>";
             strHtml += "<td class='mail'>" + data["mail"] + "</td>";
@@ -28,9 +28,14 @@
 
 
             $("#info").append(strHtml);
+            $("#attation").click(function () {
+                $.get("/user/attationto/"+$("#id").text());
+            })
 
 
         })
+
+
 
 
 
@@ -41,7 +46,9 @@
 </script>
 <body>
 <h2>用户详细信息</h2>
+
 <div>
+    <button id="attation">关注</button>
     <table id="info">
         <tr>
             <th>userid</th>

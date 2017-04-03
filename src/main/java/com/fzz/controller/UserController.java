@@ -1,8 +1,9 @@
 package com.fzz.controller;
 
 import com.fzz.entity.User;
-import com.fzz.service.UserService;
+import com.fzz.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @RequestMapping("/serqueryname")
     public void setQueryName(
@@ -29,26 +30,26 @@ public class UserController {
         httpSession.setAttribute("queryname",username);
     }
 
-    @RequestMapping("/info")
+    @RequestMapping("/info")//query user info by session "queryname"
     public User info(
             HttpSession httpSession
     ) {
                String username= (String) httpSession.getAttribute("queryname");
                return userService.findByName(username);
     }
-    @RequestMapping("info/{username}")
+    @RequestMapping("info/{username}")//show user info by quest username
     public User userinfo(
             @PathVariable("username")String username
     ){
                 return userService.findByName(username);
     }
 
-    @RequestMapping("/all")
+    @RequestMapping("/all")//list all user simple info
     public List<User> users() {
         return userService.getAll();
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/login")//user login
     public User login(
             @RequestParam("username")String username,
             @RequestParam("password")String password,
@@ -72,9 +73,28 @@ public class UserController {
                 return userService.modify(username,password);
     }
 
-    @RequestMapping("checkusername")
+    @RequestMapping("checkusername")//检查用户名是否存在
     public boolean checkUserExist(@RequestParam("username") String username) {
         return userService.checkUserExist(username);
     }
 
+
+    @RequestMapping("fanslist")//获取粉丝列表
+    public List<User> fanslist(HttpSession httpSession) {
+                return userService.getfanslist(httpSession);
+    }
+
+    @RequestMapping("attationlist")
+    public List<User> attationlist(HttpSession httpSession) {
+                return userService.getattationlist(httpSession);
+    }
+
+    @RequestMapping("attationto/{userid}")//通过ID关注其他用户
+    public User attationto(
+            @PathVariable("userid") int userid,
+            HttpSession httpSession
+
+    ){
+                return userService.attationto(userid,httpSession);
+    }
 }

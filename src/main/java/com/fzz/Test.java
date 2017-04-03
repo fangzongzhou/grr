@@ -1,21 +1,6 @@
 package com.fzz;
 
-import com.fzz.service.UserService;
-import com.fzz.util.PathUtil;
-import com.fzz.util.RegularExpUtil;
-import com.fzz.util.UrlUtil;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import redis.clients.jedis.Jedis;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.fzz.service.impl.UserServiceImpl;
 
 /**
  * Created by tuyoo on 2017/3/16.
@@ -43,8 +28,8 @@ public class Test {
 //        System.out.println("server is runing: "+jedis.ping());
 //        jedis.set("fzzname", "fangzongzhou");
 //        System.out.println("result::  "+jedis.get("fzzname"));
-        UserService userService=new UserService();
-        userService.register("xiaofang","xiaofff");
+        UserServiceImpl userServiceImplImpl =new UserServiceImpl();
+        userServiceImplImpl.register("xiaofang","xiaofff");
 
     }
 }

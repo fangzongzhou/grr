@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by fzz on 2017/3/28.
@@ -33,16 +34,45 @@ public class User {
     @JsonIgnore
     @JoinTable(
             name = "user_task",
-            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "user_id"),
+            joinColumns = @JoinColumn(name = "operator_id",referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id",referencedColumnName = "id")
     )
     private Collection<Task> tasks2me;
 
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "attation",
+            joinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id")
+    )
+    private List<User> attation;
 
+    public List<User> getAttation() {
+        return attation;
+    }
 
+    public void setAttation(List<User> attation) {
+        this.attation = attation;
+    }
 
+    public List<User> getFans() {
+        return fans;
+    }
 
+    public void setFans(List<User> fans) {
+        this.fans = fans;
+    }
 
+    @JsonIgnore
+    @ManyToMany
+
+    @JoinTable(
+            name = "attation",
+            joinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id")
+    )
+    private List<User> fans;
 
 
     public Collection<Task> getCreatebyme() {
