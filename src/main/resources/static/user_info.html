@@ -6,10 +6,8 @@
 </head>
 <script src="js/jquery-1.8.3.min.js"></script>
 <script>
-    $(document).ready(function () {
 
-
-
+    function userinfo() {
         $.getJSON("/user/info",function (data) {
 
 
@@ -29,18 +27,22 @@
 
             $("#info").append(strHtml);
             $("#attation").click(function () {
+
                 $.get("/user/attationto/"+$("#id").text());
+
+            })
+            $.get("/relation/haveattation/"+data.id,function (haveattation) {
+                if(haveattation==true) {
+                    $("#attation").html("取消关注");
+                }
             })
 
-
         })
+    }
 
 
-
-
-
-
-
+    $(document).ready(function () {
+        userinfo();
 
     })
 </script>
@@ -60,6 +62,7 @@
 
         </tr>
     </table>
+
 </div>
 </body>
 </html>

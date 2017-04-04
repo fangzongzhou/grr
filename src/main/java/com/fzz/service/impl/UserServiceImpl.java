@@ -1,13 +1,16 @@
 package com.fzz.service.impl;
 
+import com.fzz.config.Const;
 import com.fzz.dao.UserDao;
 import com.fzz.entity.User;
+import com.fzz.entity.global.Response;
 import com.fzz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by fzz on 2017/3/28.
@@ -16,6 +19,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
+
+
 
     @Override
     public List<User> getAll() {
@@ -26,7 +31,7 @@ public class UserServiceImpl implements UserService {
     public User login(String username, String password, HttpSession httpSession) {
         User user=userDao.findByUsername(username);
         if (user.getPassword().equals(password)) {
-            httpSession.setAttribute("userid",user.getId());
+            httpSession.setAttribute(Const.LOGIN_SESSION,user.getId());
             return user;
         }
         return null;
@@ -68,10 +73,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getfanslist(HttpSession httpSession) {
+    public Set<User> getfanslist(HttpSession httpSession) {
+        User user=getCurrentUser(httpSession);
 
-
-        return getCurrentUser(httpSession).getFans();
+        return user.getFans();
     }
 
     @Override
@@ -79,7 +84,7 @@ public class UserServiceImpl implements UserService {
     public User attationto(int userid,HttpSession httpSession) {
         User attationto=userDao.findOne(userid);
         User currentuser=getCurrentUser(httpSession);
-        List<User> attation=currentuser.getAttation();
+        Set<User> attation=currentuser.getAttation();
         attation.add(attationto);
         currentuser.setAttation(attation);
 
@@ -87,14 +92,20 @@ public class UserServiceImpl implements UserService {
     }
 
     //获取当前登录的用户
-    private User getCurrentUser(HttpSession httpSession) {
+    public User getCurrentUser(HttpSession httpSession) {
 
-        int userid=(int) httpSession.getAttribute("userid");
-        return userDao.findOne(userid);
+
+        return userDao.findOne((int)httpSession.getAttribute(Const.LOGIN_SESSION));
+    }
+
+    public Response modifyusername(int id, String username) {
+
+        System.out.println(userDao.setUserName(username,id));
+        return new Response();
     }
 
     @Override
-    public List<User> getattationlist(HttpSession httpSession) {
+    public Set<User> getattationlist(HttpSession httpSession) {
         return getCurrentUser(httpSession).getAttation();
     }
 }

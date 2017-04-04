@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by fzz on 2017/3/28.
@@ -46,21 +47,21 @@ public class User {
             joinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id")
     )
-    private List<User> attation;
+    private Set<User> attation;
 
-    public List<User> getAttation() {
+    public Set<User> getAttation() {
         return attation;
     }
 
-    public void setAttation(List<User> attation) {
+    public void setAttation(Set<User> attation) {
         this.attation = attation;
     }
 
-    public List<User> getFans() {
+    public Set<User> getFans() {
         return fans;
     }
 
-    public void setFans(List<User> fans) {
+    public void setFans(Set<User> fans) {
         this.fans = fans;
     }
 
@@ -72,7 +73,7 @@ public class User {
             joinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id")
     )
-    private List<User> fans;
+    private Set<User> fans;
 
 
     public Collection<Task> getCreatebyme() {
@@ -189,7 +190,7 @@ public class User {
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
-        result = 31 * result + (password != null ? birthday.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 }

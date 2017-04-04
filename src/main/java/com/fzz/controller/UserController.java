@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by fzz on 2017/3/28.
@@ -80,12 +81,12 @@ public class UserController {
 
 
     @RequestMapping("fanslist")//获取粉丝列表
-    public List<User> fanslist(HttpSession httpSession) {
+    public Set<User> fanslist(HttpSession httpSession) {
                 return userService.getfanslist(httpSession);
     }
 
     @RequestMapping("attationlist")
-    public List<User> attationlist(HttpSession httpSession) {
+    public Set<User> attationlist(HttpSession httpSession) {
                 return userService.getattationlist(httpSession);
     }
 
@@ -96,5 +97,12 @@ public class UserController {
 
     ){
                 return userService.attationto(userid,httpSession);
+    }
+
+    @RequestMapping("currentuser")
+    public User currentuser(
+            HttpSession httpSession
+    ){
+        return userService.getCurrentUser(httpSession);
     }
 }

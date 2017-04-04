@@ -4,6 +4,7 @@ import com.fzz.entity.User;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by tuyoo on 2017/4/3.
@@ -21,10 +22,10 @@ public interface UserService {
 
     User findByName(String username);
 
-    List<User> getfanslist(HttpSession httpSession);
+    Set<User> getfanslist(HttpSession httpSession);
 
     User attationto(int userid,HttpSession httpSession);
 
 
-    List<User> getattationlist(HttpSession httpSession);
+    Set<User> getattationlist(HttpSession httpSession);
 }

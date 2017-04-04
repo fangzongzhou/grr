@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task manage</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+
+        page=1;
+        size=5;
+
+        function getpage() {
+
+            if(page!=1) {
+                if(page<1) {
+                    page=1;
+                }
+                if(page>$("#totalpages").html()){
+                    page=$("#totalpages").html();
+                }
+
+            }
+            url="/task/show/"+(page-1)+"/"+size;
+            $.get(url,function (data) {
+                $("#totalpages").html(data.totalPages);
+                $("#recordnum").html(data.totalElements);
+                $("#current_page").html(data.number+1);
+                tasklist="<tr> <th>id</th> <th>creater_name</th> <th>description</th> <th>creaedate</th>";
+                $.each(data.content,function (index,tasks) {
+                    tasklist+="<tr>";
+                    tasklist+="<td>"+tasks.id+"</td>";
+                    tasklist+="<td>"+tasks.creater.username+"</td>";
+                    tasklist+="<td>"+tasks.description+"</td>";
+                    tasklist+="<td>"+tasks.createdate+"</td>";
+                    tasklist+="</tr>"
+                })
+                tasklist+="</tr>";
+                $("#task_list").html(tasklist);
+            })
+        }
+        $(window).ready(function () {
+
+            getpage();
+            $("#pagenext").click(function () {
+                page++;
+                getpage();
+
+            })
+            $("#pagelast").click(function () {
+                page--;
+                getpage();
+
+            })
+            $("#topage").click(function () {
+                page=$("#index").val();
+                getpage();
+            })
+            $("#firstpage").click(function () {
+                page=1;
+                getpage();
+            })
+            $("#lastpage").click(function () {
+                page=$("#totalpages").html();
+                getpage();
+            })
+
+        })
+
+
+    </script>
+
+
+
+</head>
+<body>
+<h2>task manage</h2>
+<a href="task_creat.html">创建任务</a><br/>
+<a href="task_tome.html">task to me</a><br/>
+<div>
+    <table id="task_list">
+
+
+    </table>
+</div>
+共 <span id="recordnum"></span>条数据&nbsp;&nbsp;
+当前第：<span id="current_page"></span>页&nbsp;&nbsp;
+共有页数:<span id="totalpages"></span>&nbsp;&nbsp;
+<span id="firstpage">首页</span>&nbsp;&nbsp;
+<span id="pagelast">上一页</span>&nbsp;&nbsp;
+<span id="pagenext">下一页</span>&nbsp;&nbsp;
+<span id="lastpage">尾页</span>&nbsp;&nbsp;
+
+<input type="text" id="index">
+<input type="button" id="topage">
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fans</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(window).ready(function () {
+            $.getJSON("/user/fanslist",function(fans) {
+                str="";
+                $.each(fans,function (fan) {
+
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div >
+<table id="fans_list">
+
+</table>
+</div>
+</body>
+</html>
