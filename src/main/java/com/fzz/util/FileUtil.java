@@ -38,13 +38,7 @@ public class FileUtil {
 
     public static void main(String[] args) throws IOException {
 
-        FileUtil fileUtil=new FileUtil();
-        List<String> list1=new ArrayList<String>();
-        List<String> list=fileUtil.getAllFileList("/Users/tuyoo/Desktop",list1);
-        Iterator<String> iterator =list.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+        FileUtil.readTxtFile("/Users/tuyoo/Documents/config_online/game/6/room/6057.json");
         
     }
 
@@ -124,5 +118,32 @@ public class FileUtil {
         byte[] bytes=new byte[(int)randomAccessFile.length()];
         randomAccessFile.read(bytes);
         System.out.println(Arrays.toString(bytes));
+    }
+
+    public static String readTxtFile(String filePath){
+        StringBuilder res=new StringBuilder();
+        try {
+            String encoding="UTF-8";
+            File file=new File(filePath);
+
+            if(file.isFile() && file.exists()){ //判断文件是否存在
+                InputStreamReader read = new InputStreamReader(
+                        new FileInputStream(file),encoding);//考虑到编码格式
+                BufferedReader bufferedReader = new BufferedReader(read);
+
+                String lineTxt = null;
+                while((lineTxt = bufferedReader.readLine()) != null){
+                    res.append(lineTxt);
+                }
+                read.close();
+                return res.toString();
+            }else{
+                System.out.println("找不到指定的文件");
+            }
+        } catch (Exception e) {
+            System.out.println("读取文件内容出错");
+            e.printStackTrace();
+        }
+        return res.toString();
     }
 }

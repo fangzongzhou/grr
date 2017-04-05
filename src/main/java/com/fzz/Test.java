@@ -1,6 +1,13 @@
 package com.fzz;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fzz.service.impl.UserServiceImpl;
+import com.fzz.util.FileUtil;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.io.File;
+import java.util.Map;
 
 /**
  * Created by tuyoo on 2017/3/16.
@@ -28,8 +35,17 @@ public class Test {
 //        System.out.println("server is runing: "+jedis.ping());
 //        jedis.set("fzzname", "fangzongzhou");
 //        System.out.println("result::  "+jedis.get("fzzname"));
-        UserServiceImpl userServiceImplImpl =new UserServiceImpl();
-        userServiceImplImpl.register("xiaofang","xiaofff");
+
+//        String str= FileUtil.readTxtFile("/Users/tuyoo/Documents/config_online/game/6/room/6057.json");
+//        //str="{\"age\": 0,\"name\": \"放纵走后\"}";
+//
+//        System.out.println(str);
+//        Gson gson=new Gson();
+//
+//        Map<String,Object> map=gson.fromJson(str,Map.class);
+//        System.out.println( map.get("name"));
+
+
 
     }
 }
