@@ -1,5 +1,6 @@
 package com.fzz.controller;
 
+import com.fzz.config.Const;
 import com.fzz.entity.Task;
 import com.fzz.entity.global.Response;
 import com.fzz.service.impl.TaskServiceImpl;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -68,5 +70,10 @@ public class TaskController {
                 return taskService.findbypage(page,size);
     }
 
+    @RequestMapping("/to/me")
+    public List<Task> tasktome(HttpSession httpSession) {
+                int id=(int)httpSession.getAttribute(Const.LOGIN_SESSION);
+                return taskService.to_user_tasks(id);
+    }
 
 }

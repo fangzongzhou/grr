@@ -31,6 +31,8 @@ public class TaskServiceImpl implements TaskService {
     @Autowired
     private UserDao userDao;
 
+
+
     @Autowired
     private NativeSqlDao nativeSqlDao;
 
@@ -39,6 +41,7 @@ public class TaskServiceImpl implements TaskService {
         Pageable pageable=new PageRequest(page,size);
         return taskDao.findAll(pageable);
     }
+
 
     @Override
 

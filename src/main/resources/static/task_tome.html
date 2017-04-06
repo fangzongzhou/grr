@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>task_tome</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/global.js"></script>
+    <script >
+        $(window).ready(function () {
+            $.get("/task/to/me",function (data) {
+                str="<tr><th>id</th><th>creatername</th><th>description</th><th>createdate</th></tr>";
+                $.each(data,function (index,task) {
+                    str+="<tr>";
+                    str+="<th>"+task.id+"</th>";
+                    str+="<th>"+task.creater.username+"</th>";
+                    str+="<th>"+task.description+"</th>";
+                    str+="<th>"+task.createdate+"</th>";
+                    str+="</tr>"
+
+                })
+                $("#tasks").html(str);
+            })
+        })
+    </script>
 </head>
 <body>
+<div id="head"></div>
 <h2>指派给我的任务</h2>
+<div>
+    <table id="tasks">
 
+    </table>
+</div>
 </body>
 </html>

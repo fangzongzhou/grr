@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class NativeSqlDao {
-    //@PersistenceUnit
+    @PersistenceUnit
     private EntityManagerFactory entityManagerFactory;
 
 

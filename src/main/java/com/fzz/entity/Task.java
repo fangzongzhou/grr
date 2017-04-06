@@ -27,6 +27,16 @@ public class Task {
             inverseJoinColumns = {@JoinColumn(name = "operator_id",referencedColumnName = "user_id")})
     private Collection<User> operator;
 
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private String description;
 
     private Date createdate;
