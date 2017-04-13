@@ -5,7 +5,7 @@ package com.fzz.util;
  */
 public class PathUtil {
 
-    public String getProjectPath() {
+    public static String getProjectPath() {
 
         return Class.class.getResource("/").getPath();
     }

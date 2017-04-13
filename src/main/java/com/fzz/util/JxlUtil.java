@@ -19,6 +19,26 @@ import java.io.IOException;
 
 public class JxlUtil {
     public static void main(String[] args) {
+        info(new File("e:/jxl.xls"));
+    }
+
+    public static void info(File file) {
+        try {
+            Workbook workbook=Workbook.getWorkbook(file);
+            Sheet sheet=workbook.getSheet(0);
+
+            System.out.println("表名为:"+sheet.getName());
+            System.out.println(sheet.getRows()+" 行");
+            System.out.println(sheet.getColumns()+" 列");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (BiffException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void readExcel() {
         try {
             Workbook workbook = Workbook.getWorkbook(new File("e:/jxl.xls"));
 
@@ -38,8 +58,8 @@ public class JxlUtil {
         }
     }
 
-    public static void createExcel(){
-        String[] title={"id","name","sex"};
+    public static void createExcel(String[] title,Object[] objs){
+
         File file = new File("e:/jxl.xls");
         try {
             file.createNewFile();

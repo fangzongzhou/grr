@@ -2,14 +2,19 @@ package com.fzz.controller;
 
 import com.fzz.entity.User;
 import com.fzz.service.impl.UserServiceImpl;
+import com.fzz.util.JxlUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +28,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    //设置查询姓名
     @RequestMapping("/serqueryname")
     public void setQueryName(
             @RequestParam("username")String username,
@@ -31,6 +37,7 @@ public class UserController {
         httpSession.setAttribute("queryname",username);
     }
 
+
     @RequestMapping("/info")//query user info by session "queryname"
     public User info(
             HttpSession httpSession
@@ -38,6 +45,8 @@ public class UserController {
                String username= (String) httpSession.getAttribute("queryname");
                return userService.findByName(username);
     }
+
+
     @RequestMapping("info/{username}")//show user info by quest username
     public User userinfo(
             @PathVariable("username")String username
@@ -64,6 +73,14 @@ public class UserController {
             @RequestParam("password")String password
     ){
                 return userService.register(username,password);
+    }
+
+    @RequestMapping("batch_register")
+    public boolean batchRegister(
+            @RequestParam("users")MultipartFile multipartFile
+    ) throws IOException {
+
+        return true;
     }
 
     @RequestMapping("modify")
