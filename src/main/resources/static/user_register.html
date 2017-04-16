@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>用户注册</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#register").click(function () {
+
+                if($("#password").val()==$("#password_confirm").val()){
+                    $("form").submit();
+                }
+                else {
+                    alert("两次输入的密码不一致!")
+                }
+            })
+
+        })
+    </script>
 </head>
 <body>
 <h2>新用户注册</h2>
     <form action="user/register" method="post">
         用户名:<input name="username" type="text" /><br/>
-        密码:<input name="password" type="password"/><br/>
-        确认密码:<input name="password_confirm" type="password"><br/>
-        <input type="submit" value="注册">
+        密码:<input name="password" type="password" id="password"/><br/>
+        确认密码:<input name="password_confirm" type="password" id="password_confirm"><br/>
+        <input type="button" value="注册" id="register">
     </form>
 </body>
 </html>
