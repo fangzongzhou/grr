@@ -13,7 +13,7 @@
                 $.each (data,function (index,course) {
 
                     courselist+="<option value=\""+course.id+"\">"+course.name+"</option>"
-                    courses+="<tr><th>"+course.id+"</th><th>"+course.name+"</th><th>"+course.instructor.name+"</th></tr>"
+                    courses+="<tr><th>"+course.id+"</th><th>"+course.name+"</th><th>"+course.instructor.username+"</th></tr>"
                 })
 
                 $("#coursename").html(courselist)
