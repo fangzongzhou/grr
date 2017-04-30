@@ -15,6 +15,22 @@ public class Course {
     @Column(nullable = false)
     private String type;
 
+    @ManyToOne
+    @JoinColumn(name = "instructor",referencedColumnName = "user_id")
+    private User instructor;
+
+
+
+//--------------------------------------------------------------------------------------------------------
+
+    public Course() {
+
+    }
+    public Course(String name, String type, User instructor) {
+        this.setName(name);
+        this.setType(type);
+        this.setInstructor(instructor);
+    }
     public int getId() {
         return id;
     }
@@ -47,9 +63,7 @@ public class Course {
         this.instructor = instructor;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "instructor",referencedColumnName = "user_id")
-    private User instructor;
+
 
 
 

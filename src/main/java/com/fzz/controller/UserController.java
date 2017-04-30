@@ -47,7 +47,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("info/{username}")//show user info by quest username
+    @RequestMapping("info/{username}")
     public User userinfo(
             @PathVariable("username")String username
     ){

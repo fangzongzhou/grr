@@ -48,6 +48,18 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id")
     )
     private Set<User> attation;
+    @JsonIgnore
+    @ManyToMany
+
+    @JoinTable(
+            name = "attation",
+            joinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id")
+    )
+    private Set<User> fans;
+
+
+    //---------------------------------------------------------------------------------------------------------
 
     public Set<User> getAttation() {
         return attation;
@@ -64,16 +76,6 @@ public class User {
     public void setFans(Set<User> fans) {
         this.fans = fans;
     }
-
-    @JsonIgnore
-    @ManyToMany
-
-    @JoinTable(
-            name = "attation",
-            joinColumns = @JoinColumn(name = "attation_to",referencedColumnName = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "attation_from",referencedColumnName = "user_id")
-    )
-    private Set<User> fans;
 
 
     public Collection<Task> getCreatebyme() {

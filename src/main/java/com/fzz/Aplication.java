@@ -9,13 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class Aplication {
-
-
     public static void main(String[] args) {
         System.out.println("my web will be build , please waiting.");
         SpringApplication.run(Aplication.class,args);
     }
-
-
 
 }

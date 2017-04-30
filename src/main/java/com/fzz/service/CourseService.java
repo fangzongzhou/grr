@@ -11,11 +11,11 @@ import java.util.Set;
  */
 public interface CourseService {
 
-    public Course add(String name, String type, User instructor);
+    public Course add(String name, String type, int instructorid);
 
     public Course delete(int courseid);
 
-    public Course modify();
+    public Course modify(int courseid,String name,String type,int instructerid);
 
     public Course query(int courseid);
 
