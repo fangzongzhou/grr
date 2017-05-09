@@ -51,6 +51,7 @@ public class UserController {
     public User userinfo(
             @PathVariable("username")String username
     ){
+                //meishei
                 return userService.findByName(username);
     }
 

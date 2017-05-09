@@ -3,8 +3,9 @@ package com.fzz.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.sql.Date;
+
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
