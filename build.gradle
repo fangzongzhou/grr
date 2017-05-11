@@ -47,6 +47,16 @@ dependencies {
     // https://mvnrepository.com/artifact/redis.clients/jedis
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
 
+//    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+//    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.6.1'
+
+
+
+
+
+
+
+
 
 
 

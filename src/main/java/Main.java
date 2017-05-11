@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -11,6 +13,8 @@ import java.util.Map;
  * Created by fzz on 2017/3/19.
  */
 public class Main {
+
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
     private static final SessionFactory ourSessionFactory;
 
     static {
@@ -31,6 +35,9 @@ public class Main {
         final Session session = getSession();
         try {
             System.out.println("querying all the managed entities...");
+            if (logger.isDebugEnabled()) {
+                logger.debug("huanyingshiyong");
+            }
             final Map metadataMap = session.getSessionFactory().getAllClassMetadata();
             for (Object key : metadataMap.keySet()) {
                 final ClassMetadata classMetadata = (ClassMetadata) metadataMap.get(key);
