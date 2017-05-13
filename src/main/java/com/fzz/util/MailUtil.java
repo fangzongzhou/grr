@@ -27,7 +27,7 @@ public class MailUtil {
     public static void main(String[] args) throws GeneralSecurityException, MessagingException, IOException {
 
         MailUtil mailUtil=new MailUtil();
-        String Address="1944288097@qq.com;fangzongzhou@tuyoogame.com;";
+        String Address="1944288097@qq.com;";
         mailUtil.sendMail("fzz邮件","fzz521477@foxmail.com","fzz521477@foxmail.com","zdcmjpfedrqjbdbe",Address);
     }
 
