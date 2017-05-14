@@ -6,11 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Created by fzz on 2017/2/27.
  */
 @SpringBootApplication
+@EnableScheduling
 public class Aplication {
     private static Logger logger = LoggerFactory.getLogger(Aplication.class);
     public static void main(String[] args) {

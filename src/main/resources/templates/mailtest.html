@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>mailtest</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mailtest.js"></script>
+</head>
+<body>
+<form enctype="multipart/form-data" action="http://localhost:8080/mail/sendmail" method="post" >
+<table>
+    <tr>
+        <td>邮件主题:</td><td><input type="text" name="subject"/></td>
+    </tr>
+    <tr>
+        <td>receive:</td><td id="reclist"><input type="text" id="rec1" name="receiver"/><br/></td>
+    </tr>
+    <tr>
+        <td>text:</td><td><input type="text" name="text"/></td>
+    </tr>
+    <tr>
+        <td>fujian:</td><td><input type="file" name="files"/></td>
+    </tr>
+    <tr>
+        <td>fujian:</td><td><input type="file" name="files"/></td>
+    </tr>
+</table>
+    <input type="button" id="addrec" value="add rec"/>
+    <input type="button" id="remrec" value="rem rec"/>
+    <input type="submit" value="tijiao" />
+</form>
+</body>
+</html>

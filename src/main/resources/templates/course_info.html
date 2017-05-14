@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<p th:text="'课程名: ' + ${course.name} " />
+<p th:text="'课程类型:, ' + ${course.type} " />
+<p th:text="'指导教师:, ' + ${course.instructor.username} " />
+
+
+</body>
+</html>

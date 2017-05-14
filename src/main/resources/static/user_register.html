@@ -23,9 +23,17 @@
 <body>
 <h2>新用户注册</h2>
     <form action="user/register" method="post">
-        用户名:<input name="username" type="text" /><br/>
-        密码:<input name="password" type="password" id="password"/><br/>
-        确认密码:<input name="password_confirm" type="password" id="password_confirm"><br/>
+        <table>
+            <tr>
+                <td>用户名:</td><td><input name="username" type="text" /></td>
+            </tr>
+            <tr>
+                <td>密码:</td><td><input name="password" type="password" id="password"/></td>
+            </tr>
+            <tr>
+                <td>确认密码:</td><td><input name="password_confirm" type="password" id="password_confirm"></td>
+            </tr>
+        </table>
         <input type="button" value="注册" id="register">
     </form>
 </body>

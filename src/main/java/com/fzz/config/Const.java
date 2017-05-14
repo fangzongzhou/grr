@@ -6,6 +6,7 @@ package com.fzz.config;
 public class Const {
 
     public static String LOGIN_SESSION="grr_user_id";
+    public static String QUERY_COURSE_ID="query_course_id";
 
 
 }

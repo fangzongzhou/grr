@@ -2,38 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>course</title>
+    <title>mycourses</title>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script>
         $(document).ready(function () {
             var courselist=""
             var courses="<tr><th>课程id</th><th>课程名</th><th>指导教师</th></tr>"
-            $.getJSON("/course/all",function (data) {
+            $.getJSON("/course/selected?userid=2",function (data) {
 
                 $.each (data,function (index,course) {
 
                     courselist+="<option value=\""+course.id+"\">"+course.name+"</option>"
-                    courses+="<tr class='course'><th class='courseid'>"+course.id+"</th><th>"+course.name+"</th><th>"+course.instructor.username+"</th></tr>"
+                    courses+="<tr><th>"+course.id+"</th><th>"+course.name+"</th><th>"+course.instructor.username+"</th></tr>"
                 })
 
                 $("#coursename").html(courselist)
                 $("#courses").html(courses)
-                $(".course").click(function () {
-                    alert($(this).children(".courseid").text())
-                    $.get("/course/setqueryid"+$(this).children(".courseid").text())
-                    window.location.href="course_info.html";
-                })
             })
 
         })
     </script>
 </head>
 <body>
-<select id="coursename"></select>
+<div>
+    <h2>课程</h2>
+    <table id="courses">
 
-<h2>课程</h2>
-<table id="courses">
-
-</table>
+    </table>
+</div>
 </body>
 </html>

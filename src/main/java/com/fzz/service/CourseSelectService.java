@@ -11,6 +11,7 @@ import java.util.Set;
  * Created by fzz on 2017/4/30.
  */
 public interface CourseSelectService {
+
     public CourseSelect selectCourse(int userid,int courseid);
     public CourseSelect cancelCourse(int courseselectid);
     public List<Course> selectBySb(int userid);

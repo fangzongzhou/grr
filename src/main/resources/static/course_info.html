@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course_info</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(window).ready(function () {
+            $.get("/course/getqueryid",function (courseid) {
+                $.getJSON("/course/info/"+courseid,function (course) {
+                    $("#coursename").html(course.name);
+                    $("#coursetype").html(course.type);
+                    $("#instructer").html(course.instructor.username);
+                })
+            })
+
+        });
+    </script>
+</head>
+<body>
+课程名:<span id="coursename"></span><br/>
+课程类型:<span id="coursetype"></span><br/>
+指导教师:<span id="instructer"></span><br/>
+</body>
+</html>

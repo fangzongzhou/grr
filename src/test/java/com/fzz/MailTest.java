@@ -3,6 +3,7 @@ package com.fzz;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fzz.controller.ModelTest;
 import com.fzz.service.EmailService;
+import com.sun.xml.internal.bind.v2.ContextFactory;
 import org.junit.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +42,7 @@ public class MailTest {
 
         SimpleMailMessage message=new SimpleMailMessage();
         message.setFrom("fangzongzhou@qq.com");
-        message.setTo("1944288097@qq.com");
+        message.setTo("fangzongzhou@qq.com");
         message.setText("cahisyoujian");
 
         System.out.println("fasongzyou");
@@ -91,7 +92,7 @@ public class MailTest {
         helper.setTo("1944288097@qq.com");
         helper.setSubject("主题：模板邮件");
 
-        Map<String, Object> model = new HashMap();
+        Map<String, Object> model = new HashMap<String,Object>();
         model.put("username", "didi");
         ModelAndView modelAndView=new ModelAndView("mailhello");
         modelAndView.addObject("username","fangyong");
@@ -114,6 +115,10 @@ public class MailTest {
     public void asdf() throws MessagingException {
         emailService.prepareAndSendEmail();
         System.out.println("xiaohuo");
+    }
+    @Test
+    public void testxiaohuo() {
+        emailService.sendTextMail("fangzongzhou@qq.com","zdcmjpfedrqjbdbe");
     }
 
 }

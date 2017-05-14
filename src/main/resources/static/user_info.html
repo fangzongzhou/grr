@@ -26,16 +26,31 @@
 
 
             $("#info").append(strHtml);
-            $("#attation").click(function () {
-
-                $.get("/user/attationto/"+$("#id").text());
-
-            })
+            var qwer
             $.get("/relation/haveattation/"+data.id,function (haveattation) {
                 if(haveattation==true) {
                     $("#attation").html("取消关注");
+                    qwer=1
+                    //$.get("/user/cancelattation/"+$("#id").text());
+                }else {
+                    $("#attation").html("关注");
+                    qwer=0
+                    // $.get("/user/attationto/"+$("#id").text());
                 }
             })
+            $("#attation").click(function () {
+
+                if(qwer==1){
+                    $.get("/relation/cancelattation/"+$("#id").text());
+                    location.reload()
+                }else {
+                    $.get("/relation/attationto/"+$("#id").text());
+                    location.reload()
+                }
+
+
+            })
+
 
         })
     }
@@ -50,7 +65,7 @@
 <h2>用户详细信息</h2>
 
 <div>
-    <button id="attation">关注</button>
+    <button id="attation"></button>
     <table id="info">
         <tr>
             <th>userid</th>

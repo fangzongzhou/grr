@@ -27,5 +27,7 @@ public interface UserService {
     User attationto(int userid,HttpSession httpSession);
 
 
+
+
     Set<User> getattationlist(HttpSession httpSession);
 }
