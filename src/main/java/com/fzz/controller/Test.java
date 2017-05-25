@@ -1,6 +1,7 @@
 package com.fzz.controller;
 
 import com.fzz.entity.global.Response;
+import com.fzz.service.DocService;
 import com.fzz.service.UserService;
 import com.fzz.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.SocketTimeoutException;
@@ -24,6 +26,8 @@ public class Test {
 
     @Autowired
     private UserServiceImpl userService;
+    @Autowired
+    DocService docService;
 
     @RequestMapping("/modifyusername/{id}/{username}")
     public Response modifyusername(
@@ -48,8 +52,10 @@ public class Test {
     @RequestMapping("file")
     public void file(
             HttpServletResponse resp
-    ) {
-        File file = new File("F:/template.doc");
+    ) throws IOException {
+
+        File file = new File("F:/result.doc");
+        docService.getUserDocModel(1);
         resp.setHeader("content-type", "application/octet-stream");
         resp.setContentType("application/octet-stream");
         resp.setHeader("Content-Disposition", "attachment;filename=" + "template.doc");
@@ -58,7 +64,9 @@ public class Test {
         OutputStream os = null;
         try {
             os = resp.getOutputStream();
+
             bis = new BufferedInputStream(new FileInputStream(file));
+
             int i = bis.read(buff);
             while (i != -1) {
                 os.write(buff, 0, buff.length);
