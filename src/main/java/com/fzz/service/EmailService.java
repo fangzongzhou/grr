@@ -51,7 +51,6 @@ public class EmailService {
 
     public void mysendmail(String subject, String[] tousers, String text, List<MultipartFile> files) throws MessagingException {
         MimeMessage message=emailSender.createMimeMessage();
-
         MimeMessageHelper messageHelper=new MimeMessageHelper(message,true);
         messageHelper.setText(text);
         messageHelper.setSubject(subject);
