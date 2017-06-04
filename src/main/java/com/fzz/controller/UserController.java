@@ -3,6 +3,9 @@ package com.fzz.controller;
 import com.fzz.entity.User;
 import com.fzz.service.impl.UserServiceImpl;
 import com.fzz.util.JxlUtil;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,6 +71,13 @@ public class UserController {
     ){
         return userService.login(username,password,httpSession);
     }
+    @ApiOperation(value = "用户注册")
+
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "username",value = "用户名",required = true,dataType = "String"),
+            @ApiImplicitParam(name = "password",value = "密码",required = true,dataType = "String")
+
+    })
     @RequestMapping("register")
     public User register(
             @RequestParam("username")String username,
