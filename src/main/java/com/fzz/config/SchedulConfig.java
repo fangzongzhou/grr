@@ -21,6 +21,6 @@ public class SchedulConfig {
     @Scheduled(cron = "0/5 * * * * ?")
     public void schedul() {
         //放置需要运行的定时任务，
-        log.info("当前时间: {}",dateFormat.format(new Date()));
+//        log.info("当前时间: {}",dateFormat.format(new Date()));
     }
 }

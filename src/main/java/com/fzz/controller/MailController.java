@@ -36,11 +36,12 @@ public class MailController {
     public String sendmail(
             HttpServletRequest request,
             @RequestParam("text") String text,
-            @RequestParam("receiver")String[] tolist,
+            @RequestParam("receiver")String to,
             @RequestParam("subject") String subject
 
             ) throws MessagingException {
 
+        String[] tolist=to.split(";");
         mailService.mysendmail(subject,tolist,text,((MultipartHttpServletRequest)request).getFiles("files"));
 
         return "successful";
