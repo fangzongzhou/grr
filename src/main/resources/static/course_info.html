@@ -8,16 +8,45 @@
         $(window).ready(function () {
             $.get("/course/getqueryid",function (courseid) {
                 $.getJSON("/course/info/"+courseid,function (course) {
+                    $("#id").html(course.id);
                     $("#coursename").html(course.name);
                     $("#coursetype").html(course.type);
                     $("#instructer").html(course.instructor.username);
                 })
             })
 
+            var qwer
+            $.get("/relation/haveattation/"+data.id,function (haveattation) {
+                if(haveattation==true) {
+                    $("#attation").html("取消关注");
+                    qwer=1
+                    //$.get("/user/cancelattation/"+$("#id").text());
+                }else {
+                    $("#attation").html("关注");
+                    qwer=0
+                    // $.get("/user/attationto/"+$("#id").text());
+                }
+            })
+
+            $("#attation").click(function () {
+
+                if(qwer==1){
+                    $.get("/relation/cancelattation/"+$("#id").text());
+                    location.reload()
+                }else {
+                    $.get("/relation/attationto/"+$("#id").text());
+                    location.reload()
+                }
+
+
+            })
+
+
         });
     </script>
 </head>
 <body>
+<p hidden id="id"></p>
 课程名:<span id="coursename"></span><br/>
 课程类型:<span id="coursetype"></span><br/>
 指导教师:<span id="instructer"></span><br/>

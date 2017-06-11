@@ -1,6 +1,6 @@
 package com.fzz.service.impl;
 
-import com.fzz.dao.CoursrDao;
+import com.fzz.dao.CourseDao;
 import com.fzz.dao.UserDao;
 import com.fzz.entity.Course;
 import com.fzz.entity.User;
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class CourseServiceImpl implements CourseService {
     @Autowired
-    CoursrDao coursrDao;
+    CourseDao courseDao;
 
     @Autowired
     UserDao userDao;
@@ -24,32 +24,32 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public Course add(String name, String type, int instructorid) {
         User instructor=userDao.findOne(instructorid);
-        return coursrDao.save(new Course(name,type,instructor));
+        return courseDao.save(new Course(name,type,instructor));
     }
 
     @Override
     public Course delete(int courseid) {
-        Course course=coursrDao.findOne(courseid);
-        coursrDao.delete(courseid);
+        Course course= courseDao.findOne(courseid);
+        courseDao.delete(courseid);
         return course;
     }
 
     @Override
     public Course modify(int courseid, String name, String type, int instructerid) {
-        Course course=coursrDao.findOne(courseid);
+        Course course= courseDao.findOne(courseid);
         course.setName(name);
         course.setType(type);
         course.setInstructor(userDao.findOne(instructerid));
-        return coursrDao.save(course);
+        return courseDao.save(course);
     }
 
     @Override
     public Course query(int courseid) {
-        return coursrDao.findOne(courseid);
+        return courseDao.findOne(courseid);
     }
 
     @Override
     public List<Course> list() {
-        return coursrDao.findAll();
+        return courseDao.findAll();
     }
 }

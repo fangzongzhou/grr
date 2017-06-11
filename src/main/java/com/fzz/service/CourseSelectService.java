@@ -16,6 +16,7 @@ public interface CourseSelectService {
     public CourseSelect cancelCourse(int courseselectid);
     public List<Course> selectBySb(int userid);
     public List<User> allstudents(int courseid);
+    public boolean haveSelected(int userid,int courseid);
 
 
 }

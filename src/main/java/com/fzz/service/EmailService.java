@@ -64,7 +64,7 @@ public class EmailService {
         emailSender.send(message);
     }
 
-    private void sendEmail(String mailTo, String subject, String mailBody) throws MessagingException {
+    public void sendEmail(String mailTo, String subject, String mailBody) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);

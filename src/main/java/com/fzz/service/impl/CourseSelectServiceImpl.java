@@ -1,18 +1,20 @@
 package com.fzz.service.impl;
 
 import com.fzz.dao.CourseSelectDao;
-import com.fzz.dao.CoursrDao;
+import com.fzz.dao.CourseDao;
+import com.fzz.dao.MailDao;
 import com.fzz.dao.UserDao;
 import com.fzz.entity.Course;
 import com.fzz.entity.CourseSelect;
 import com.fzz.entity.User;
 import com.fzz.service.CourseSelectService;
+import com.fzz.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import javax.mail.MessagingException;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by fzz on 2017/4/30.
@@ -25,11 +27,24 @@ public class CourseSelectServiceImpl implements CourseSelectService {
     @Autowired
     UserDao userDao;
     @Autowired
-    CoursrDao coursrDao;
+    CourseDao courseDao;
+    @Autowired
+    EmailService emailService;
 
     @Override
     public CourseSelect selectCourse(int userid, int courseid) {
-        return courseSelectDao.save(new CourseSelect(userDao.findOne(userid),coursrDao.findOne(courseid)));
+        User selecter=userDao.findOne(userid);
+        Course beSelected = courseDao.findOne(courseid);
+        User instructer=beSelected.getInstructor();
+        CourseSelect courseSelect = courseSelectDao.save(new CourseSelect(userDao.findOne(userid), courseDao.findOne(courseid)));
+        String subject = selecter.getUsername()+"选课通知";
+        String mailBody="尊敬的用户："+ instructer.getUsername()+"您好."+"您创建的课程："+beSelected.getName()+"被用户"+selecter.getUsername()+"选择了";
+        try {
+            emailService.sendEmail(instructer.getMail(),subject,mailBody);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return courseSelect;
     }
 
     @Override
@@ -44,6 +59,12 @@ public class CourseSelectServiceImpl implements CourseSelectService {
 
 
         return courseSelectDao.sbcourses(userid);
+    }
+
+    @Override
+    public boolean haveSelected(int userid, int courseid) {
+
+        return false;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.fzz.controller;
 
+import com.fzz.dao.UserDao;
 import com.fzz.entity.User;
 import com.fzz.service.impl.UserServiceImpl;
 import com.fzz.util.JxlUtil;
@@ -8,17 +9,21 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -38,6 +43,18 @@ public class UserController {
             HttpSession httpSession
     ){
         httpSession.setAttribute("queryname",username);
+    }
+
+    @RequestMapping("alluser")
+    public ModelAndView alluser(){
+        ModelAndView modelAndView =new ModelAndView("alluser");
+        Map<String,Object> map=new HashMap<String,Object>();
+        List<User> users=userService.getAll();
+        map.put("users",users);
+        modelAndView.addAllObjects(map);
+        return modelAndView;
+
+
     }
 
 

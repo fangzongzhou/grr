@@ -2,9 +2,13 @@ package com.fzz.service;
 
 import com.fzz.dao.UserDao;
 import com.fzz.entity.User;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.Range;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -30,6 +34,8 @@ public class DocService {
         User user=userDao.findOne(userid);
         contentMap.put("name",user.getUsername() );
         Calendar calenda=Calendar.getInstance();
+       // JdbcTemplate jdbcTemplate=new JdbcTemplate()
+
 
         contentMap.put("date",calenda.get(Calendar.YEAR)+"年"+(calenda.get(Calendar.MONTH)+1)+"月"+calenda.get(Calendar.DAY_OF_MONTH)+"日"  );
 

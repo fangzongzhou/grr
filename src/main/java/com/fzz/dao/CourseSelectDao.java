@@ -20,4 +20,6 @@ public interface CourseSelectDao extends JpaRepository<CourseSelect,Integer> {
     @Query("SELECT c FROM Course c WHERE c.id in \n" +
             "(SELECT cs.course.id FROM CourseSelect cs WHERE cs.selecter.id=?1)")
     public List<Course> sbcourses(int userid);
+
+
 }
